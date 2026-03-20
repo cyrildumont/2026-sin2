@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GestionClient2026SNI2</string>
+    <string name="add_client_form_lastname">Nom</string>
+    <string name="add_client_form_button">Ajouter</string>
+</resources>
