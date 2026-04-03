@@ -6,4 +6,6 @@
     <string name="man">Homme</string>
     <string name="woman">Femme</string>
     <string name="add_client_form_age">Age</string>
+    <string name="add_client_button">Ajouter un client</string>
+    <string name="list_clients_button">Lister les clients</string>
 </resources>

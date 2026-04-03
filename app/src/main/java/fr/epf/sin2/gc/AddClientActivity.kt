@@ -53,7 +53,9 @@ class AddClientActivity : AppCompatActivity() {
             Log.d(TAG, "Sexe : ${gender}")
             Log.d(TAG, "Age: ${ageSeekbar.progress}")
 
+
             Toast.makeText(this, "Bravo !!", Toast.LENGTH_SHORT).show()
+            finish()
 
         }
     }
