@@ -1,12 +1,15 @@
 package fr.epf.sin2.gc.model
 
+import android.os.Parcelable
+
 enum class Gender {
     MAN,WOMAN
 }
+
 data class Client(
     val lastName : String,
     val firstName : String,
-    val gender : Gender){
+    val gender : Gender) {
 
     companion object {
 

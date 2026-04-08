@@ -1,7 +1,11 @@
 package fr.epf.sin2.gc
 
+import android.content.Intent
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.epf.sin2.gc.model.Client
 
@@ -16,16 +20,48 @@ class ClientViewHolder(view : View) : RecyclerView.ViewHolder(view)
 
 class ClientAdapter(val clients : List<Client>) : RecyclerView.Adapter<ClientViewHolder>() {
     override fun onCreateViewHolder(
-        p0: ViewGroup,
-        p1: Int
+        parent: ViewGroup,
+        viewType: Int
     ): ClientViewHolder {
-        TODO("Not yet implemented")
+        val inflater = LayoutInflater.from(parent.context)
+        val view =
+            inflater.inflate(R.layout.client_view,parent,false)
+        return ClientViewHolder(view)
     }
 
-    override fun onBindViewHolder(p0: ClientViewHolder, p1: Int) {
-        TODO("Not yet implemented")
-    }
+    override fun onBindViewHolder(vh: ClientViewHolder, position: Int) {
+        val client = clients[position] // clients.get(position)
+        val view = vh.itemView
 
+        view.click {
+            view.context.apply {
+                val intent =
+                    Intent(this, DetailsClientActivity::class.java)
+                intent.putExtra("CLIENT", client.fullName)
+                startActivity(intent)
+            }
+        }
+
+/*
+        val fullNameTextview = view.findViewById<TextView>(R.id.client_fullname_textview)
+        fullNameTextview.text = client.fullName
+*/
+        view.findViewById<TextView>(R.id.client_fullname_textview).apply {
+            text = client.fullName
+        }
+
+        view.findViewById<ImageView>(R.id.client_imageview).apply {
+            setBackgroundResource(client.image)
+        }
+
+
+    }
     override fun getItemCount() = clients.size
-
 }
+
+private const val TAG = "ClientAdapter"
+
+
+
+
+

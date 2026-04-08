@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestionClient2026SNI2">
         <activity
+            android:name=".DetailsClientActivity"
+            android:exported="false"
+            android:parentActivityName=".ListClientsActivity"
+            />
+        <activity
             android:name=".ListClientsActivity"
             android:exported="false" />
         <activity
@@ -26,7 +31,6 @@
         <activity
             android:name=".AddClientActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>

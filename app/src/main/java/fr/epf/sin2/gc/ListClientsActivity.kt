@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import fr.epf.sin2.gc.model.Client
 
 class ListClientsActivity : AppCompatActivity() {
@@ -13,5 +15,12 @@ class ListClientsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_list_clients)
 
         val clients = Client.generateList()
+
+        findViewById<RecyclerView>(R.id.clients_recyclerview).apply {
+            layoutManager =
+                LinearLayoutManager(this@ListClientsActivity,
+                    LinearLayoutManager.VERTICAL,false)
+            adapter = ClientAdapter(clients)
+        }
     }
 }
