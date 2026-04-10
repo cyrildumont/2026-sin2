@@ -9,7 +9,8 @@ enum class Gender {
 data class Client(
     val lastName : String,
     val firstName : String,
-    val gender : Gender) {
+    val gender : Gender,
+    val imageUri : String = "") {
 
     companion object {
 

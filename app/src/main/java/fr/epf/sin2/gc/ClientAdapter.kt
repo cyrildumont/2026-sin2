@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import fr.epf.sin2.gc.model.Client
 
 /*
@@ -51,7 +52,11 @@ class ClientAdapter(val clients : List<Client>) : RecyclerView.Adapter<ClientVie
         }
 
         view.findViewById<ImageView>(R.id.client_imageview).apply {
-            setBackgroundResource(client.image)
+            if(client.imageUri.isBlank()){
+                Glide.with(view).load(client.image).into(this)
+            }else{
+                Glide.with(view).load(client.imageUri).into(this)
+            }
         }
 
 
